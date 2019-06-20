@@ -3,3 +3,8 @@ phases:
   install:
     runtime-versions:
       nodejs: 10
+    commands: 
+      - yarn
+  build:
+    commands:
+      - yarn build

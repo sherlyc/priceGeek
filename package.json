@@ -1,0 +1,12 @@
+{
+  "name": "pricegeek",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:sherlyc/priceGeek.git",
+  "author": "Sherly Chan <sherly.chan@fairfaxmedia.co.nz>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "echo 'building'"
+  }
+}
