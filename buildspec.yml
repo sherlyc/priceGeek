@@ -8,3 +8,6 @@ phases:
   build:
     commands:
       - yarn build
+artifacts:
+  files:
+    - build.txt
