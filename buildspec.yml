@@ -9,5 +9,6 @@ phases:
     commands:
       - yarn build
 artifacts:
-  type: NO_ARTIFACTS
-  
+  files:
+    - target/build.txt
+
