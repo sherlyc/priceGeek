@@ -39,7 +39,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
       restriction_type = "none"
     }
   }
-  viewer_certificate {}
+  viewer_certificate {
+    cloudfront_default_certificate = true
+  }
 }
 provider "aws" {
     region = "ap-southeast-2"
