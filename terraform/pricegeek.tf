@@ -17,7 +17,7 @@ resource "aws_s3_bucket" "www" {
 
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
-  enabled = false
+  enabled = true
   default_cache_behavior {
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods = ["GET", "HEAD", "OPTIONS"]
