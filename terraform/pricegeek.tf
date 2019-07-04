@@ -9,9 +9,10 @@ terraform {
 resource "aws_s3_bucket" "www" {
   bucket = "pricegeekwww"
   acl = "private"
-  website {
-    index_document = "index.html"
-  }
+  tags = {
+    terraform="true"
+    }
+
 }
 
 provider "aws" {
