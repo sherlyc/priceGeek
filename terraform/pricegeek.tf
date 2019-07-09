@@ -15,9 +15,32 @@ resource "aws_s3_bucket" "www" {
 
 }
 
+resource "aws_s3_bucket_policy" "site_policy" {
+  bucket = "pricegeekwww"
+  policy = data.aws_iam_policy_document.site_policy_data.json
+}
+
+data "aws_iam_policy_document" "site_policy_data" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "s3:GetObject"]
+    resources = [
+      "${aws_s3_bucket.www.arn}/*"]
+
+    principals {
+      identifiers = [
+        aws_cloudfront_origin_access_identity.site-access-s3.iam_arn
+      ]
+      type = "AWS"
+    }
+  }
+}
+
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   enabled = true
+  default_root_object = "index.html"
   default_cache_behavior {
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods = ["GET", "HEAD", "OPTIONS"]
@@ -31,8 +54,11 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
   origin {
-    domain_name = aws_s3_bucket.www.bucket_regional_domain_name
+    domain_name = aws_s3_bucket.www.bucket_domain_name
     origin_id = "www"
+    s3_origin_config {
+      origin_access_identity = aws_cloudfront_origin_access_identity.site-access-s3.cloudfront_access_identity_path
+    }
   }
   restrictions {
     geo_restriction {
@@ -45,4 +71,15 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 }
 provider "aws" {
     region = "ap-southeast-2"
+}
+
+resource "aws_cloudfront_origin_access_identity" "site-access-s3" {
+  comment ="access_from_cloudfront"
+}
+
+resource "aws_s3_bucket_object" "index" {
+  bucket = aws_s3_bucket.www.bucket
+  key = "index.html"
+  source = "../index.html"
+  content_type = "text/html"
 }
