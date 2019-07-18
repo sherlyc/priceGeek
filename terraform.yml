@@ -2,7 +2,8 @@ version: 0.2
 phases:
   install:
     commands: 
-      - cd terraform 
+      - cd terraform
+      - cd dev
       - terraform init
   build:
     commands:

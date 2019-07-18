@@ -1,13 +1,5 @@
-terraform {
-    backend "s3" {
-        bucket = "pricegeektfstate"
-        key = "state.json"
-        region = "ap-southeast-2"
-    }
-}
-
 variable "env" {
-  default = "dev"
+  type = string
 }
 
 resource "aws_s3_bucket" "www" {
@@ -84,6 +76,6 @@ resource "aws_cloudfront_origin_access_identity" "site-access-s3" {
 resource "aws_s3_bucket_object" "index" {
   bucket = aws_s3_bucket.www.bucket
   key = "index.html"
-  source = "../index.html"
+  source = "../../index.html"
   content_type = "text/html"
 }
