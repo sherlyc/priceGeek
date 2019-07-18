@@ -1,13 +1,17 @@
 terraform {
     backend "s3" {
         bucket = "pricegeektfstate"
-        key = "test.json"
+        key = "state.json"
         region = "ap-southeast-2"
     }
 }
 
+variable "env" {
+  default = "dev"
+}
+
 resource "aws_s3_bucket" "www" {
-  bucket = "pricegeekwww"
+  bucket = "${var.env}-pricegeekwww"
   acl = "private"
   tags = {
     terraform="true"
@@ -16,7 +20,7 @@ resource "aws_s3_bucket" "www" {
 }
 
 resource "aws_s3_bucket_policy" "site_policy" {
-  bucket = "pricegeekwww"
+  bucket = aws_s3_bucket.www.bucket
   policy = data.aws_iam_policy_document.site_policy_data.json
 }
 
