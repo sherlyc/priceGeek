@@ -10,4 +10,4 @@ phases:
       - yarn build
 artifacts:
   files:
-    - '**'
+    - '**/*'
