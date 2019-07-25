@@ -10,6 +10,4 @@ phases:
       - yarn build
 artifacts:
   files:
-    - 'terraform/*'
-    - '*.yml'
-
+    - '**'
