@@ -3,8 +3,9 @@ phases:
   install:
     commands:
       - ls
+      - echo $ENV
       - cd terraform
-      - cd $(ENV)
+      - cd $ENV
       - terraform init
   build:
     commands:
