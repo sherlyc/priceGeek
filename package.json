@@ -7,6 +7,20 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "echo 'building'"
+    "build": "echo 'building'",
+    "e2e": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/puppeteer": "^1.12.4",
+    "jest": "^24.8.0",
+    "puppeteer": "^1.19.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
   }
 }
