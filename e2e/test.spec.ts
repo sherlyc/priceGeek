@@ -2,7 +2,7 @@ import {Browser, launch, Page} from 'puppeteer';
 
 jest.setTimeout(30000);
 
-describe('test', () => {
+describe('e2e test', () => {
     let browser: Browser;
     let page: Page;
 
