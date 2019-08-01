@@ -10,7 +10,7 @@ describe('e2e test', () => {
         page = await browser.newPage();
     });
     beforeAll(async () => {
-        browser = await launch();
+        browser = await launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 
     });
     describe('dev homepage', () => {
