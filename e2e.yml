@@ -3,11 +3,10 @@ phases:
   install:
     runtime-versions:
       nodejs: 10
-    commands: 
+    commands:
+      - ls
+      - echo $ENV
       - npm install
   build:
     commands:
-      - npm run build
-artifacts:
-  files:
-    - '**/*'
+      - npm run e2e
