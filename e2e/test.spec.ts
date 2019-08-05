@@ -2,9 +2,19 @@ import {Browser, launch, Page} from 'puppeteer';
 
 jest.setTimeout(30000);
 
+const config : { [key: string]: any } = {
+    "dev": {
+        testUrl: "https://d2mc8xylnixdyv.cloudfront.net"
+    },
+    "prod": {
+        testUrl: "https://d13bcdzaghwlha.cloudfront.net"
+    }
+}
+
 describe('e2e test', () => {
     let browser: Browser;
     let page: Page;
+    let env = process.env.ENV || 'dev';
 
     beforeEach(async () => {
         page = await browser.newPage();
@@ -13,23 +23,12 @@ describe('e2e test', () => {
         browser = await launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 
     });
-    describe('dev homepage', () => {
-        const devHomepage = 'https://d2mc8xylnixdyv.cloudfront.net';
+    describe('homepage', () => {
+        const homePage = config[env].testUrl;
+        console.log('opening homepage in environment: ', env);
 
-        it('should display Hello world!', async () => {
-            await page.goto(devHomepage);
-            await page.waitForSelector('.content');
-            const textContent = await page.evaluate(() => document.querySelector('.content')!.textContent);
-
-            await expect(textContent).toMatch('Welcome to PriceGeek!')
-        });
-    });
-
-    describe('prod homepage', () => {
-        const prodHomepage = 'https://d13bcdzaghwlha.cloudfront.net';
-
-        it('should display Hello world!', async () => {
-            await page.goto(prodHomepage);
+        it('should display Welcome to PriceGeek!', async () => {
+            await page.goto(homePage);
             await page.waitForSelector('.content');
             const textContent = await page.evaluate(() => document.querySelector('.content')!.textContent);
 
