@@ -1,15 +1,9 @@
 import {Browser, launch, Page} from 'puppeteer';
+import config from './config.json';
 
 jest.setTimeout(30000);
 
-const config : { [key: string]: any } = {
-    "dev": {
-        testUrl: "https://d2mc8xylnixdyv.cloudfront.net"
-    },
-    "prod": {
-        testUrl: "https://d13bcdzaghwlha.cloudfront.net"
-    }
-}
+const envConfig : { [key: string]: any } = config;
 
 describe('e2e test', () => {
     let browser: Browser;
@@ -24,7 +18,7 @@ describe('e2e test', () => {
 
     });
     describe('homepage', () => {
-        const homePage = config[env].testUrl;
+        const homePage = envConfig[env].testUrl;
         console.log('opening homepage in environment: ', env);
 
         it('should display Welcome to PriceGeek!', async () => {
