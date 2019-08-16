@@ -6,7 +6,6 @@ phases:
       - echo $ENV
       - cd terraform/priceGeek
       - terraform init -backend-config=../config/backend-$ENV.conf
-      - terraform init
   build:
     commands:
       - terraform apply -var=env=$ENV -auto-approve
