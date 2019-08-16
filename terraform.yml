@@ -4,7 +4,7 @@ phases:
     commands:
       - ls
       - echo $ENV
-      - cd priceGeek
+      - cd terraform/priceGeek
       - terraform init -backend-config=config/backend-$ENV.conf
       - terraform init
   build:
