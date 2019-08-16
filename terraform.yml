@@ -9,4 +9,4 @@ phases:
       - terraform init
   build:
     commands:
-      - terraform apply -var=env=$ENV
+      - terraform apply -var=env=$ENV -auto-approve
