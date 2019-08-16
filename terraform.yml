@@ -4,9 +4,9 @@ phases:
     commands:
       - ls
       - echo $ENV
-      - cd terraform
-      - cd $ENV
+      - cd priceGeek
+      - terraform init -backend-config=config/backend-$ENV.conf
       - terraform init
   build:
     commands:
-      - terraform apply -auto-approve
+      - terraform apply -var-file=config/$ENV.tfvars -auto-approve
