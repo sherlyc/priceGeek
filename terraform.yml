@@ -8,4 +8,4 @@ phases:
       - terraform init -backend-config=../config/backend-$ENV.conf
   build:
     commands:
-      - terraform apply -var 'env=$ENV' -auto-approve
+      - terraform apply -var=env=$ENV -auto-approve
