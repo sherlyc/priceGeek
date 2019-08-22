@@ -8,7 +8,14 @@
   "private": true,
   "scripts": {
     "build": "echo 'building'",
-    "e2e": "jest"
+    "e2e": "jest",
+    "init-dev": "cd terraform/priceGeek && terraform init -backend-config=../config/backend-dev.conf",
+    "plan-dev": "cd terraform/priceGeek && terraform plan -var 'env=dev'",
+    "apply-dev": "cd terraform/priceGeek && terraform apply -var 'env=dev' -auto-approve",
+    "init-prod": "cd terraform/priceGeek && terraform init -backend-config=../config/backend-prod.conf",
+    "plan-prod": "cd terraform/priceGeek && terraform plan -var 'env=prod'",
+    "apply-prod": "cd terraform/priceGeek && terraform apply -var 'env=prod' -auto-approve"
+
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
