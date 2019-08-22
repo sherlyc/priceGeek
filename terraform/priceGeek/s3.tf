@@ -7,10 +7,10 @@ resource "aws_s3_bucket" "www" {
 
 }
 
-//resource "aws_s3_bucket_policy" "site_policy" {
-//  bucket = aws_s3_bucket.www.bucket
-//  policy = data.aws_iam_policy_document.site_policy_data.json
-//}
+resource "aws_s3_bucket_policy" "site_policy" {
+  bucket = aws_s3_bucket.www.bucket
+  policy = data.aws_iam_policy_document.site_policy_data.json
+}
 
 resource "aws_s3_bucket_object" "index" {
   bucket = aws_s3_bucket.www.bucket
