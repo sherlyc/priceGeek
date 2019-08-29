@@ -15,7 +15,7 @@ resource "aws_s3_bucket_policy" "site_policy" {
 resource "aws_s3_bucket_object" "index" {
   bucket = aws_s3_bucket.www.bucket
   key = "index.html"
-  source = "../../index.html"
+  source = "../../src/client/index.html"
   content_type = "text/html"
-  etag = "${md5(file("../../index.html"))}"
+  etag = "${md5(file("../../src/client/index.html"))}"
 }
