@@ -12,3 +12,4 @@ artifacts:
   files:
     - '**/*'
   base-directory: dist
+  name: priceGeek-$(date +%Y-%m-%d)
