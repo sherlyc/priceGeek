@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "echo 'building'",
+    "build": "mkdir -p dist && cp -r ./src/client/** ./dist",
     "e2e": "jest",
     "init-dev": "cd terraform/priceGeek && terraform init -backend-config=../config/backend-dev.conf",
     "plan-dev": "cd terraform/priceGeek && terraform plan -var 'env=dev'",
