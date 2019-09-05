@@ -14,13 +14,14 @@
     "apply-dev": "cd terraform/priceGeek && terraform apply -var 'env=dev' -auto-approve",
     "init-prod": "cd terraform/priceGeek && terraform init -backend-config=../config/backend-prod.conf",
     "plan-prod": "cd terraform/priceGeek && terraform plan -var 'env=prod'",
-    "apply-prod": "cd terraform/priceGeek && terraform apply -var 'env=prod' -auto-approve"
-
+    "apply-prod": "cd terraform/priceGeek && terraform apply -var 'env=prod' -auto-approve",
+    "serve": "ws -d ./dist -s index.html"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/puppeteer": "^1.12.4",
     "jest": "^24.8.0",
+    "local-web-server": "^3.0.7",
     "puppeteer": "^1.19.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",

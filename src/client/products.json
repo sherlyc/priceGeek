@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Switch",
+    "price": "23.20",
+    "image": "images/switchChart.png"
+  },
+  {
+    "name": "Ipad Mini",
+    "price": "189.99",
+    "image": "images/ipadMini.png"
+  }
+]
