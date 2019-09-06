@@ -5,9 +5,10 @@ fetch("products.json")
 .then(receiveProducts)
 
 function receiveProducts(products) {
-    console.log(products)
     var productsContainer = document.getElementById("products");
-    productsContainer.append(getProductHtml(products[0]));
+    products.forEach(function(product){
+        productsContainer.append(getProductHtml(product));
+    })
 }
 
 function getProductHtml(product) {
