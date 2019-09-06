@@ -4,7 +4,6 @@ resource "aws_s3_bucket" "www" {
   tags = {
     terraform="true"
   }
-
 }
 
 resource "aws_s3_bucket_policy" "site_policy" {
