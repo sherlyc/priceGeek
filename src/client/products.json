@@ -2,11 +2,13 @@
   {
     "name": "Switch",
     "price": "23.20",
-    "image": "images/switchChart.png"
+    "image": "images/switchChart.png",
+    "chart": [ [108, 5], [126, 1], [144, 6], [162, 6], [180, 4] ]
   },
   {
     "name": "Ipad Mini",
     "price": "189.99",
-    "image": "images/ipadMini.png"
+    "image": "images/ipadMini.png",
+    "chart": [ [108, 5], [126, 1], [144, 6], [162, 6], [180, 4] ]
   }
 ]
