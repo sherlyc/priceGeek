@@ -16,7 +16,7 @@ function getProductHtml(product) {
     var productDiv = document.createElement("div");
     var price = document.createElement("h1");
     var chart = document.createElement("div");
-    chart.id = product.name;
+    chart.id = product.id;
 
     price.innerText = "Price of " + product.name + " is about $"+ product.price;
 
@@ -27,13 +27,30 @@ function getProductHtml(product) {
 }
 
 function plotChart(product) {
-    Highcharts.chart(product.name, {
-        title: {
-            text: 'Price of '+ product.name
+    Highcharts.chart(product.id, {
+        chart: {
+            backgroundColor: '#000',
+            color: '#fff'
         },
-
+        title: {
+            text: product.name,
+            style: {
+                color: "#fff"
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        yAxis: {
+            title: {
+                text: "Volume"
+            },
+            allowDecimals: false,
+        },
         tooltip: {
-            valueDecimals: 2
+            formatter: function () {
+                return '$'+ this.x + ': ' + this.y + ' items';
+            }
         },
         series: [{
             data: product.chart,
@@ -42,3 +59,4 @@ function plotChart(product) {
         }]
     });
 }
+
