@@ -29,6 +29,7 @@ function getProductHtml(product) {
 function plotChart(product) {
     Highcharts.chart(product.id, {
         chart: {
+            type: 'spline',
             backgroundColor: '#000',
             color: '#fff'
         },
@@ -45,7 +46,7 @@ function plotChart(product) {
             title: {
                 text: "Volume"
             },
-            allowDecimals: false,
+            allowDecimals: false
         },
         tooltip: {
             formatter: function () {
@@ -55,7 +56,9 @@ function plotChart(product) {
         series: [{
             data: product.chart,
             lineWidth: 0.5,
-            name: 'Price'
+            name: 'Price',
+            color: '#FF0000',
+            lineWidth: 1
         }]
     });
 }
