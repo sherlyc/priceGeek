@@ -55,7 +55,6 @@ function plotChart(product) {
         },
         series: [{
             data: product.chart,
-            lineWidth: 0.5,
             name: 'Price',
             color: '#FF0000',
             lineWidth: 1
