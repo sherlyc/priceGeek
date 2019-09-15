@@ -21,12 +21,12 @@ describe('e2e test', () => {
         const homePage = envConfig[env].testUrl;
         console.log('opening homepage in environment: ', env);
 
-        it('should display Welcome to PriceGeek!', async () => {
+        it('should display Welcome to PriceNinja!', async () => {
             await page.goto(homePage);
             await page.waitForSelector('.content');
             const textContent = await page.evaluate(() => document.querySelector('.content')!.textContent);
 
-            await expect(textContent).toMatch('Welcome to PriceGeek!')
+            await expect(textContent).toMatch('Welcome to PriceNinja!')
         });
     });
 
