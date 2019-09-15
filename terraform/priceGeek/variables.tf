@@ -2,7 +2,7 @@ variable "env" {
   type = string
 }
 
-variable "domain" {
+variable "cloudfront_aliases" {
   type = string
 }
 
