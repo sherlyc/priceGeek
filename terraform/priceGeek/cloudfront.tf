@@ -26,7 +26,10 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn = var.acm_arn
+    minimum_protocol_version = var.cloudfront_min_protocol_ver
+    ssl_support_method = var.cloudfront_ssl_method
+    cloudfront_default_certificate = var.cloudfront_default_cert
   }
 }
 
