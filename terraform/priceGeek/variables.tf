@@ -4,10 +4,12 @@ variable "env" {
 
 variable "cloudfront_aliases" {
   type = string
+  default = null
 }
 
 variable "acm_arn" {
   type = string
+  default = null
 }
 
 variable "cloudfront_default_cert" {
