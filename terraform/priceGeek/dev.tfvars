@@ -1,5 +1,5 @@
 env = "dev"
-cloudfront_aliases = null
+cloudfront_aliases = [""]
 acm_arn = ""
 cloudfront_default_cert = true
 cloudfront_min_protocol_ver = "TLSv1"
