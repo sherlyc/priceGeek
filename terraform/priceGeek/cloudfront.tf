@@ -1,5 +1,5 @@
 locals {
-  isProd = var.env == "prod" ? 1 : 0
+  isProd = var.env == "prod" ? [1] : [0]
 }
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
