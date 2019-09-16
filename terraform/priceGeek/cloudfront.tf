@@ -1,7 +1,7 @@
 resource "aws_cloudfront_distribution" "s3_distribution" {
   enabled = true
   default_root_object = "index.html"
-  aliases = var.env == 'prod' ? ['priceninja.io'] : null
+  aliases = var.env == "prod" ? ["www.${var.domain}", var.domain] : null
   default_cache_behavior {
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods = ["GET", "HEAD", "OPTIONS"]

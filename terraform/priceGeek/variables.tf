@@ -2,9 +2,9 @@ variable "env" {
   type = string
 }
 
-variable "cloudfront_aliases" {
-  type = list(string)
-  default = [""]
+variable "domain" {
+  type = string
+  default = ["priceninja.io"]
 }
 
 variable "acm_arn" {
