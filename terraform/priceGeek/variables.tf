@@ -3,8 +3,8 @@ variable "env" {
 }
 
 variable "cloudfront_aliases" {
-  type = string
-  default = null
+  type = list(string)
+  default = [""]
 }
 
 variable "acm_arn" {
