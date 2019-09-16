@@ -4,7 +4,7 @@ variable "env" {
 
 variable "domain" {
   type = string
-  default = ["priceninja.io"]
+  default = "priceninja.io"
 }
 
 variable "acm_arn" {
