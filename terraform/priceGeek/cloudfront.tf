@@ -1,7 +1,7 @@
 resource "aws_cloudfront_distribution" "s3_distribution" {
   enabled = true
   default_root_object = "index.html"
-  aliases = var.env == "prod" ? ["www.${var.domain}"] : null
+  aliases = ["${var.domain_prefix}.priceninja.io"]
   default_cache_behavior {
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods = ["GET", "HEAD", "OPTIONS"]
@@ -27,10 +27,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
   viewer_certificate {
-    acm_certificate_arn = var.acm_arn
-    minimum_protocol_version = var.cloudfront_min_protocol_ver
-    ssl_support_method = var.cloudfront_ssl_method
-    cloudfront_default_certificate = var.cloudfront_default_cert
+    acm_certificate_arn ="arn:aws:acm:us-east-1:201687515750:certificate/4b9a16e0-5ea9-4d91-9c62-0390be85c4b4"
+    minimum_protocol_version = "TLSv1"
+    ssl_support_method = "sni-only"
   }
 }
 
