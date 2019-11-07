@@ -27,7 +27,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
   viewer_certificate {
-    acm_certificate_arn ="arn:aws:acm:us-east-1:201687515750:certificate/4b9a16e0-5ea9-4d91-9c62-0390be85c4b4"
+    acm_certificate_arn ="arn:aws:acm:us-east-1:201687515750:certificate/64a3206b-fe4f-4c1e-a857-cab4ebd4404a"
     minimum_protocol_version = "TLSv1"
     ssl_support_method = "sni-only"
   }
