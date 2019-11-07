@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config src/server/webpack.config.ts",
-    "build": "mkdir -p dist && mkdir -p dist/client && cp -r ./src/client/** ./dist/client",
+    "build:client": "mkdir -p dist && mkdir -p dist/client && cp -r ./src/client/** ./dist/client",
+    "build": "yarn build:client && yarn build:server",
     "build:server": "webpack --config src/server/webpack.config.ts",
     "e2e": "jest",
     "init-dev": "cd terraform/priceGeek && terraform init -backend-config=../config/backend-dev.conf",
