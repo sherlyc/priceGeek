@@ -7,7 +7,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "start": "webpack-dev-server --config src/server/webpack.config.ts",
     "build": "mkdir -p dist && cp -r ./src/client/** ./dist",
+    "build:server": "webpack --config src/server/webpack.config.ts",
     "e2e": "jest",
     "init-dev": "cd terraform/priceGeek && terraform init -backend-config=../config/backend-dev.conf",
     "plan-dev": "cd terraform/priceGeek && terraform plan -var-file=dev.tfvars",
@@ -20,15 +22,26 @@
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/puppeteer": "^1.12.4",
+    "@types/webpack": "^4.39.3",
+    "glob": "^7.1.5",
     "jest": "^24.8.0",
     "local-web-server": "^3.0.7",
     "puppeteer": "^1.19.0",
     "ts-jest": "^24.0.2",
+    "ts-loader": "^6.2.0",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
   },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "@types/glob": "^7.1.1",
+    "axios": "^0.19.0",
+    "path": "^0.12.7"
   }
 }
