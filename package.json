@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config src/server/webpack.config.ts",
-    "build": "mkdir -p dist && cp -r ./src/client/** ./dist",
+    "build": "mkdir -p dist && cp -r ./src/client/** ./dist/client",
     "build:server": "webpack --config src/server/webpack.config.ts",
     "e2e": "jest",
     "init-dev": "cd terraform/priceGeek && terraform init -backend-config=../config/backend-dev.conf",
@@ -17,7 +17,7 @@
     "init-prod": "cd terraform/priceGeek && terraform init -backend-config=../config/backend-prod.conf",
     "plan-prod": "cd terraform/priceGeek && terraform plan -var-file=prod.tfvars",
     "apply-prod": "cd terraform/priceGeek && terraform apply -var-file=prod.tfvars -auto-approve",
-    "serve": "ws -d ./dist -s index.html"
+    "serve": "ws -d ./dist/client -s index.html"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",

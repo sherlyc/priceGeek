@@ -1,5 +1,6 @@
 import {Configuration} from "webpack";
 import { readdirSync } from "fs";
+import {join} from "path";
 
 const serverSrc = "./src/server/";
 
@@ -11,10 +12,14 @@ const getDirectories = (serverPath: string) =>
         })
 
 const entries = Object.assign({}, ...getDirectories(serverSrc));
+console.log(join(__dirname, "../../dist/server"))
 
 export default {
     mode: "production",
     entry: entries,
+    output: {
+        path: join(__dirname, "../../dist/server")
+    },
     resolve: {
         extensions: ['.ts', '.js']
     },

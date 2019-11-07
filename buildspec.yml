@@ -11,5 +11,5 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: dist
+  base-directory: dist/client
   name: priceGeek-$(date +%Y-%m-%d)
