@@ -11,18 +11,18 @@ phases:
 artifacts:
   files:
     - './*'
-  name: deploy-$(date +%Y-%m-%d)
+  name: deploy
   secondary-artifacts:
     artifact1:
       base-directory: dist/client
       files:
         - './**/*'
-      name: priceNinja-client-$(date +%Y-%m-%d)
+      name: priceNinjaClient
     artifact2:
       base-directory: dist/server
       files:
         - './**/*'
-      name: priceNinja-server-$(date +%Y-%m-%d)
+      name: priceNinjaServer
 
 
 
