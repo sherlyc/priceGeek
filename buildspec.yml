@@ -10,6 +10,19 @@ phases:
       - npm run build
 artifacts:
   files:
-    - '**/*'
-  base-directory: dist
-  name: priceGeek-$(date +%Y-%m-%d)
+    - './*'
+  name: deploy-$(date +%Y-%m-%d)
+  secondary-artifacts:
+    artifact1:
+      base-directory: dist/client
+      files:
+        - './**/*'
+      name: priceNinja-client-$(date +%Y-%m-%d)
+    artifact2:
+      base-directory: dist/server
+      files:
+        - './**/*'
+      name: priceNinja-server-$(date +%Y-%m-%d)
+
+
+
