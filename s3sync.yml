@@ -3,6 +3,9 @@ phases:
   install:
     runtime-versions:
       nodejs: 10
+    commands:
+      - ls
+      - echo $ENV
   build:
     commands:
       - aws s3 sync ./dist/client s3://$ENV-pricegeekwww
