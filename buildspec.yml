@@ -11,8 +11,9 @@ phases:
 artifacts:
   files:
     - './*'
-    - 'dist/client/**/*'
-    - 'dist/server/**/*'
+    - './dist/**/*'
+    - './terraform/**/*'
+    - './e2e/**/*'
   name: priceNinja-$(date +%Y-%m-%d)
 
 
