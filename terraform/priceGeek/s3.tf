@@ -16,5 +16,5 @@ resource "aws_s3_bucket_object" "index" {
   key = "index.html"
   source = "../../dist/client/index.html"
   content_type = "text/html"
-  etag = "${md5(file("../../dist/client/index.html"))}"
+  etag = md5(file("../../dist/client/index.html"))
 }

@@ -17,8 +17,11 @@ console.log(join(__dirname, "../../dist/server"))
 export default {
     mode: "production",
     entry: entries,
+    optimization: {minimize: false},
     output: {
-        path: join(__dirname, "../../dist/server")
+        path: join(__dirname, "../../dist/server"),
+        filename: "[name]/index.js",
+        libraryTarget: "commonjs"
     },
     resolve: {
         extensions: ['.ts', '.js']
