@@ -24,6 +24,7 @@
     "@types/jest": "^24.0.15",
     "@types/puppeteer": "^1.12.4",
     "@types/webpack": "^4.39.3",
+    "cheerio": "^1.0.0-rc.3",
     "glob": "^7.1.5",
     "jest": "^24.8.0",
     "local-web-server": "^3.0.7",
