@@ -20,8 +20,7 @@ export default {
     optimization: {minimize: false},
     output: {
         path: join(__dirname, "../../dist/server"),
-        filename: "[name]/index.js",
-        libraryTarget: "commonjs"
+        filename: "[name]/index.js"
     },
     resolve: {
         extensions: ['.ts', '.js']
