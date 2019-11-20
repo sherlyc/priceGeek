@@ -1,6 +1,5 @@
-
-const cheerio = require('cheerio');
-const axios = require('axios');
+import cheerio from 'cheerio'
+import axios from 'axios'
 
 export const handler = async () => {
     const url = 'https://www.mightyape.co.nz/product/ps4-slim-1tb-value-bundle-ps4/25921903';

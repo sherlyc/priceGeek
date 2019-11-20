@@ -1,3 +1,7 @@
 import axios from "axios";
-const various: number = 5;
-console.log(axios);
+
+export const handler = async () => {
+    const various: number = 5;
+    console.log(axios);
+}
+

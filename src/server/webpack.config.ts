@@ -1,6 +1,6 @@
-import {Configuration} from "webpack";
+import { Configuration } from "webpack";
 import { readdirSync } from "fs";
-import {join} from "path";
+import { join } from "path";
 
 const serverSrc = "./src/server/";
 
@@ -18,6 +18,7 @@ export default {
     mode: "production",
     entry: entries,
     optimization: {minimize: false},
+    target: "node",
     output: {
         path: join(__dirname, "../../dist/server"),
         filename: "[name]/index.js"
