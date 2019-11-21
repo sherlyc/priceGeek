@@ -23,7 +23,6 @@ export default {
         path: join(__dirname, "../../dist/server"),
         filename: "[name]/index.js",
         libraryTarget: "commonjs",
-
     },
     resolve: {
         extensions: ['.ts', '.js']

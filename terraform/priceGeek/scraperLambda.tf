@@ -1,7 +1,7 @@
 data "archive_file" "init" {
   type        = "zip"
   source_dir = "../../dist/server/webScraper"
-  output_path = "../../dist/server/webScraper/file.zip"
+  output_path = "../../dist/server/webScraper.zip"
 }
 
 resource "aws_lambda_function" "webScraper" {
@@ -10,6 +10,7 @@ resource "aws_lambda_function" "webScraper" {
   handler = "index.handler"
   role = aws_iam_role.webScraperRole.arn
   runtime = "nodejs10.x"
+  timeout = 30
 }
 
 resource "aws_iam_role" "webScraperRole" {
