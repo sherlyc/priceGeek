@@ -15,9 +15,11 @@
     "init-dev": "cd terraform/priceGeek && terraform init -backend-config=../config/backend-dev.conf",
     "plan-dev": "cd terraform/priceGeek && terraform plan -var-file=dev.tfvars",
     "apply-dev": "cd terraform/priceGeek && terraform apply -var-file=dev.tfvars -auto-approve",
+    "destroy-dev": "cd terraform/priceGeek && terraform destroy -var-file=dev.tfvars",
     "init-prod": "cd terraform/priceGeek && terraform init -backend-config=../config/backend-prod.conf",
     "plan-prod": "cd terraform/priceGeek && terraform plan -var-file=prod.tfvars",
     "apply-prod": "cd terraform/priceGeek && terraform apply -var-file=prod.tfvars -auto-approve",
+    "destroy-prod": "cd terraform/priceGeek && terraform destroy -var-file=prod.tfvars",
     "serve": "ws -d ./dist/client -s index.html"
   },
   "devDependencies": {
