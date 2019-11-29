@@ -7,7 +7,7 @@ resource "aws_cloudwatch_event_rule" "twelve_hours_webscraper" {
 resource "aws_cloudwatch_event_target" "webscraper_twelve_hours" {
   rule = "aws_cloudwatch_event_rule.every_twelve_hours_webscraper_${var.env}.name"
   target_id = "webScraper"
-  arn = "aws_lambda_function.webscraper_${var.env}.arn"
+  arn = aws_lambda_function.webScraper.arn
 }
 
 resource "aws_lambda_permission" "allow_cloudwatch_to_call_webscraper" {

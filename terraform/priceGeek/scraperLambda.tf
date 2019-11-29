@@ -8,7 +8,7 @@ resource "aws_lambda_function" "webScraper" {
   function_name = "webScraper-${var.env}"
   filename = data.archive_file.init.output_path
   handler = "index.handler"
-  role = "aws_iam_role.webScraperRole_${var.env}.arn"
+  role = aws_iam_role.webScraperRole.arn
   runtime = "nodejs10.x"
   timeout = 30
 }
