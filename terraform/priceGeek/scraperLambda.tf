@@ -28,3 +28,8 @@ data "aws_iam_policy_document" "lambdaPolicy" {
     }
   }
 }
+
+resource "aws_iam_role_policy_attachment" "lambdaBasicExecution" {
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+  role = aws_iam_role.webScraperRole.name
+}
