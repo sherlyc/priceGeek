@@ -1,8 +1,8 @@
 {
   "dev": {
-    "testUrl": "https://d2mvpokoi1e3fh.cloudfront.net"
+    "testUrl": "https://dev.priceninja.io"
   },
   "prod": {
-    "testUrl": "http://d223pxnnkg7eie.cloudfront.net/"
+    "testUrl": "https://www.priceninja.io"
   }
 }
