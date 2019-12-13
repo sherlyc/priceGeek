@@ -19,3 +19,19 @@ resource "aws_dynamodb_table" "product_table" {
     Environment = var.env
   }
 }
+
+resource "aws_dynamodb_table" "products_scraper" {
+  name           = "ProductScraper-${var.env}"
+  billing_mode   = "PAY_PER_REQUEST"
+  hash_key       = "id"
+
+  attribute {
+    name = "id"
+    type = "S"
+  }
+
+  tags = {
+    Name        = "products-scraper"
+    Environment = var.env
+  }
+}
