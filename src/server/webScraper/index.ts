@@ -27,7 +27,8 @@ async function listItems() {
 }
 
 export const handler = async () => {
-    const data = await listItems()
+    const data = await listItems();
+    console.log("###################")
     console.log('data', data);
     const url = 'https://www.mightyape.co.nz/product/ps4-slim-1tb-value-bundle-ps4/25921903';
     const response = await axios.get(url);
