@@ -23,10 +23,26 @@ resource "aws_dynamodb_table" "product_table" {
 resource "aws_dynamodb_table" "products_scraper" {
   name           = "ProductScraper-${var.env}"
   billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "id"
+  hash_key       = "ProductId"
+  range_key      = "VendorId"
 
   attribute {
-    name = "id"
+    name = "ProductId"
+    type = "N"
+  }
+
+  attribute {
+    name = "VendorId"
+    type = "N"
+  }
+
+  attribute {
+    name = "Url"
+    type = "S"
+  }
+
+  attribute {
+    name = "Selector"
     type = "S"
   }
 
@@ -35,3 +51,4 @@ resource "aws_dynamodb_table" "products_scraper" {
     Environment = var.env
   }
 }
+
