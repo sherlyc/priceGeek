@@ -4,10 +4,17 @@ import cheerio from 'cheerio';
 
 const docClient = new aws.DynamoDB.DocumentClient({ region: 'ap-southeast-2'});
 
-async function getItem(ProductId: number) {
+async function getItem() {
     const params = {
         TableName: 'ProductScraper-dev',
-        Key: { HashKey: ProductId }
+        Key: {
+            "ProductId": {
+                N: "1001"
+            },
+            "VendorId": {
+                N: "1"
+            }
+        }
     };
 
     try {
@@ -20,7 +27,7 @@ async function getItem(ProductId: number) {
 }
 
 export const handler = async () => {
-    const data = await getItem(1001);
+    const data = await getItem();
     if(data) {
         const item = data.item;
         // const url = item.Url.S;
