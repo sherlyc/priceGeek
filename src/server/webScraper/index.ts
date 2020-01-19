@@ -24,13 +24,15 @@ async function listItems() {
 
 export const handler = async () => {
     const data = await listItems();
-    console.log("###################")
-    console.log('data:', data);
-    const url = 'https://www.mightyape.co.nz/product/ps4-slim-1tb-value-bundle-ps4/25921903';
-    const response = await axios.get(url);
-    const $ = cheerio.load(response.data);
-    const pricing = $('div.page.listing div.pricing-stock span.price').text().trim();
-    console.info('price:', pricing);
+    if(data){
+        const url = data[0].url;
+        const response = await axios.get(url);
+        const $ = cheerio.load(response.data);
+        const pricing = $('div.page.listing div.pricing-stock span.price').text().trim();
+        console.info('price:', pricing);
+        return pricing;
+    }
+    console.log('no data, exiting')
 };
 
 
