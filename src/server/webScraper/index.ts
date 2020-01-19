@@ -21,7 +21,7 @@ async function listItems() {
 export const handler = async () => {
     const data = await listItems();
     if(data) {
-        const { Url, VendorId, ProductId } = data[0];
+        const { Url, VendorId, ProductId } = data.Items[0];
         const response = await axios.get(Url);
         const $ = cheerio.load(response.data);
         const pricing = $('div.pricing-stock div.price span.price').text().trim();
