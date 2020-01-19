@@ -36,7 +36,7 @@ export const handler = async () => {
         const response = await axios.get("https://www.mightyape.co.nz/product/ps4-slim-1tb-value-bundle/25921903");
         const $ = cheerio.load(response.data);
         const pricing = $('div.pricing-stock div.price span.price').text().trim();
-        console.info('item', item);
+        console.info('item', data);
         return pricing;
     }
     console.log('no data, exiting')
