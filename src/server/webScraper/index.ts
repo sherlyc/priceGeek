@@ -4,14 +4,15 @@ import cheerio from 'cheerio';
 
 const docClient = new aws.DynamoDB.DocumentClient({ region: 'ap-southeast-2'});
 
-const params = {
-    TableName: 'ProductScraper-dev'
-};
+async function getItem(ProductId: number) {
+    const params = {
+        TableName: 'ProductScraper-dev',
+        Key: { HashKey: ProductId }
+    };
 
-async function listItems() {
     try {
-        const data = await docClient.scan(params).promise();
-        console.log('list Items', data);
+        const data = await docClient.get(params).promise();
+        console.log('get item', data);
         return data;
     } catch (err) {
         return err;
@@ -19,9 +20,9 @@ async function listItems() {
 }
 
 export const handler = async () => {
-    const data = await listItems();
+    const data = await getItem(1001);
     if(data) {
-        const item = data.Items[0];
+        const item = data.item;
         // const url = item.Url.S;
         // const vendor = item.VendorId.N;
         // const product = item.ProductId.N;
