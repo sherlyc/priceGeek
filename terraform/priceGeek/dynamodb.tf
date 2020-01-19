@@ -36,16 +36,6 @@ resource "aws_dynamodb_table" "products_scraper" {
     type = "N"
   }
 
-  attribute {
-    name = "Url"
-    type = "S"
-  }
-
-  attribute {
-    name = "Selector"
-    type = "S"
-  }
-
   tags = {
     Name        = "products-scraper"
     Environment = var.env
