@@ -21,11 +21,14 @@ async function listItems() {
 export const handler = async () => {
     const data = await listItems();
     if(data) {
-        const { Url, VendorId, ProductId } = data.Items[0];
-        const response = await axios.get(Url);
+        const item = data.Items[0];
+        const url = item.Url.S;
+        const vendor = item.VendorId.N;
+        const product = item.ProductId.N;
+        const response = await axios.get(url);
         const $ = cheerio.load(response.data);
         const pricing = $('div.pricing-stock div.price span.price').text().trim();
-        console.info('price:', pricing, 'ProductId:', ProductId, 'VendorId', VendorId);
+        console.info('price:', pricing, 'ProductId:', product, 'VendorId', vendor);
         return pricing;
     }
     console.log('no data, exiting')
