@@ -24,7 +24,7 @@ export const handler = async () => {
         const url = data[0].url;
         const response = await axios.get(url);
         const $ = cheerio.load(response.data);
-        const pricing = $('div.page.listing div.pricing-stock > span.price').text().trim();
+        const pricing = $('div.pricing-stock div.price span.price').text().trim();
         console.info('price:', pricing);
         return pricing;
     }
