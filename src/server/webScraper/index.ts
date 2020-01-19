@@ -8,12 +8,8 @@ async function getItem() {
     const params = {
         TableName: 'ProductScraper-dev',
         Key: {
-            "ProductId": {
-                N: "1001"
-            },
-            "VendorId": {
-                N: "1"
-            }
+            "ProductId": "1001",
+            "VendorId": "1"
         }
     };
 
