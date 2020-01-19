@@ -4,15 +4,11 @@ import cheerio from 'cheerio';
 
 const docClient = new aws.DynamoDB.DocumentClient({ region: 'ap-southeast-2'});
 
-var params = {
+const params = {
     TableName: 'ProductScraper-dev'
 };
 
 async function listItems() {
-    var params = {
-        TableName: 'ProductScraper-dev'
-    }
-
     try {
         const data = await docClient.scan(params).promise();
         console.log('list Items', data);
@@ -28,7 +24,7 @@ export const handler = async () => {
         const url = data[0].url;
         const response = await axios.get(url);
         const $ = cheerio.load(response.data);
-        const pricing = $('div.page.listing div.pricing-stock span.price').text().trim();
+        const pricing = $('div.page.listing div.pricing-stock > span.price').text().trim();
         console.info('price:', pricing);
         return pricing;
     }
