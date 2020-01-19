@@ -22,13 +22,13 @@ export const handler = async () => {
     const data = await listItems();
     if(data) {
         const item = data.Items[0];
-        const url = item.Url.S;
-        const vendor = item.VendorId.N;
-        const product = item.ProductId.N;
-        const response = await axios.get(url);
+        // const url = item.Url.S;
+        // const vendor = item.VendorId.N;
+        // const product = item.ProductId.N;
+        const response = await axios.get("https://www.mightyape.co.nz/product/ps4-slim-1tb-value-bundle/25921903");
         const $ = cheerio.load(response.data);
         const pricing = $('div.pricing-stock div.price span.price').text().trim();
-        console.info('price:', pricing, 'ProductId:', product, 'VendorId', vendor);
+        console.info('item', item);
         return pricing;
     }
     console.log('no data, exiting')
