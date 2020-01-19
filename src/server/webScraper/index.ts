@@ -18,6 +18,7 @@ async function getItem() {
         console.log('get item', data);
         return data;
     } catch (err) {
+        console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
         return err;
     }
 }
@@ -25,14 +26,13 @@ async function getItem() {
 export const handler = async () => {
     const data = await getItem();
     if(data) {
-        const item = data.item;
         // const url = item.Url.S;
         // const vendor = item.VendorId.N;
         // const product = item.ProductId.N;
         const response = await axios.get("https://www.mightyape.co.nz/product/ps4-slim-1tb-value-bundle/25921903");
         const $ = cheerio.load(response.data);
         const pricing = $('div.pricing-stock div.price span.price').text().trim();
-        console.info('item', data);
+        console.info('item', JSON.stringify(data, null, 2));
         return pricing;
     }
     console.log('no data, exiting')
