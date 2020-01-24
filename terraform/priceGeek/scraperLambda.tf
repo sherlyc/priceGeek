@@ -12,6 +12,9 @@ resource "aws_lambda_function" "webScraper" {
   role = aws_iam_role.webScraperRole.arn
   runtime = "nodejs10.x"
   timeout = 30
+  environment {
+    environment = var.env
+  }
 }
 
 resource "aws_iam_role" "webScraperRole" {

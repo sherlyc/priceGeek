@@ -3,13 +3,14 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 
 const docClient = new aws.DynamoDB.DocumentClient({ region: 'ap-southeast-2'});
+const env = process.env.environment;
 
 async function getItem() {
     const params = {
-        TableName: 'ProductScraper-dev',
+        TableName: `ProductScraper-${env}`,
         Key: {
-            "ProductId": "1001",
-            "VendorId": "1"
+            "ProductId": 1001,
+            "VendorId": 1
         }
     };
 
@@ -26,10 +27,8 @@ async function getItem() {
 export const handler = async () => {
     const data = await getItem();
     if(data) {
-        // const url = item.Url.S;
-        // const vendor = item.VendorId.N;
-        // const product = item.ProductId.N;
-        const response = await axios.get("https://www.mightyape.co.nz/product/ps4-slim-1tb-value-bundle/25921903");
+        console.log(data.Item.ProductId)
+        const response = await axios.get(data.Item.Url);
         const $ = cheerio.load(response.data);
         const pricing = $('div.pricing-stock div.price span.price').text().trim();
         console.info('item', JSON.stringify(data, null, 2));
