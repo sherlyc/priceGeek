@@ -4,7 +4,7 @@ resource "aws_cloudwatch_event_rule" "twentyfour_hours_webscraper" {
   schedule_expression = "rate(24 hours)"
 }
 
-resource "aws_cloudwatch_event_target" "webscraper_twenty_four_hours" {
+resource "aws_cloudwatch_event_target" "webscraper_twentyfour_hours" {
   rule = aws_cloudwatch_event_rule.twentyfour_hours_webscraper.name
   target_id = "webScraper"
   arn = aws_lambda_function.webScraper.arn
