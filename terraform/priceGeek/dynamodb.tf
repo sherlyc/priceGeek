@@ -42,6 +42,20 @@ resource "aws_dynamodb_table" "products_scraper" {
   }
 }
 
+resource "aws_dynamodb_table_item" "products_scraper" {
+  table_name = aws_dynamodb_table.products_scraper.name
+  hash_key = aws_dynamodb_table.products_scraper.hash_key
+  range_key = aws_dynamodb_table.products_scraper.range_key
+
+  item = <<ITEM
+{
+  "ProductId": {"S": "1001"},
+  "VendorId": {"S": "1"},
+  "Url": {"S": "https://www.mightyape.co.nz/product/ps4-slim-1tb-value-bundle/25921903"}
+}
+ITEM
+}
+
 resource "aws_dynamodb_table" "products_history" {
   name = "ProductHistory-${var.env}"
   billing_mode   = "PAY_PER_REQUEST"
@@ -80,4 +94,3 @@ resource "aws_dynamodb_table" "vendors" {
     type = "S"
   }
 }
-
