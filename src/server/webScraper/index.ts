@@ -26,7 +26,7 @@ async function getItem(productId: string, vendorId: string) {
 
 async function putItem(productId: string, vendorId: string, price: string) {
     const params = {
-        TableName: `ProductScraper-${env}`,
+        TableName: `ProductHistory-${env}`,
         Item: {
             "ProductId_VendorId": `${productId}_${vendorId}`,
             "Timestamp": new Date().toISOString(),
